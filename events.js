@@ -6,11 +6,11 @@
 
 document.querySelector("#activate-flight").addEventListener("click", handlerFunction)
 
-function handlerFunction () {
+function handlerFunction() {
     const el = document.getElementById("flight");
-    el.className = el.className.replace("disabled","enabled");
+    el.className = el.className.replace("disabled", "enabled");
     console.log(el)
-    }
+}
 
 handlerFunction()
 
@@ -21,25 +21,25 @@ handlerFunction()
 
 document.querySelector("#activate-mindreading").addEventListener("click", handlerFunctionMind)
 
-function handlerFunctionMind () {
+function handlerFunctionMind() {
     const mind = document.getElementById("mindreading");
-    mind.className = mind.className.replace("disabled","enabled");
+    mind.className = mind.className.replace("disabled", "enabled");
     console.log(mind)
 }
 
-handlerFunctionMind ()
+handlerFunctionMind()
 
 // second one
 
 document.querySelector("#activate-xray").addEventListener("click", handlerFunctionX)
 
-function handlerFunctionX () {
+function handlerFunctionX() {
     const xRay = document.getElementById("xray");
-    xRay.className = xRay.className.replace("disabled","enabled");
+    xRay.className = xRay.className.replace("disabled", "enabled");
     console.log(xRay)
 }
 
-handlerFunctionMind ()
+handlerFunctionMind()
 
 /*
     Write two more event handlers for activating and deactivating all powers
@@ -49,9 +49,29 @@ handlerFunctionMind ()
 
 document.querySelector("#activate-all").addEventListener("click", handlerFunctionEnabled)
 
-function handlerFunctionEnabled () {
-    const selectedAll = document.querySelectorAll("xray","mindreading","flight");
-    selectedAll.className("enabled");    
-    console.log(selectedAll)
+function handlerFunctionEnabled() {
+    const selectedAll = document.querySelectorAll(".power");
+    console.log(selectedAll, "nodelist")
+    for (var i = 0; i < selectedAll.length; i++) {
+        selectedAll[i].className = selectedAll[i].className.replace("power disabled", "power enabled");
+        console.log(selectedAll[i])
+    }
+
 }
-handlerFunctionEnabled ()
+handlerFunctionEnabled()
+
+
+// second
+
+document.querySelector("#deactivate-all").addEventListener("click", handlerFunctionDisabled)
+
+function handlerFunctionDisabled() {
+    const deselectedAll = document.querySelectorAll(".power");
+    console.log(deselectedAll, "nodelist")
+    for (var i = 0; i < deselectedAll.length; i++) {
+        deselectedAll[i].className = deselectedAll[i].className.replace("power enabled", "power disabled");
+        console.log(deselectedAll[i])
+    }
+
+}
+handlerFunctionDisabled()
